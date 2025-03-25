@@ -53,6 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         );
     });
+    // Add to main.js for debugging
+console.log('JavaScript file loaded successfully');
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded and parsed');
+});
 
     // Parallax-like effect for typography
     gsap.utils.toArray('.type-row, .character-row').forEach(row => {
@@ -67,4 +72,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    
 });
