@@ -1,0 +1,242 @@
+:root {
+    --primary-bg: #0a0a1a;
+    --secondary-bg: #121233;
+    --accent-color: #4a4aff;
+    --text-primary: #e0e0ff;
+    --text-secondary: #8080ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+body {
+    font-family: 'Tomorrow', 'Arial', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    perspective: 1000px;
+}
+
+.cursor-trail {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+}
+
+.game-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(10,10,26,0.9), transparent);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-logo {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.horizontal-typography {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.type-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.type-row {
+    display: flex;
+    gap: 3rem;
+    animation: horizontalScroll 20s linear infinite;
+}
+
+.type-row.reversed {
+    flex-direction: row-reverse;
+    animation: horizontalScrollReverse 20s linear infinite;
+}
+
+.type-text {
+    font-size: 15vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    white-space: nowrap;
+    opacity: 0.1;
+    transition: opacity 0.3s ease;
+}
+
+.type-text:hover {
+    opacity: 0.5;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(74,74,255,0.1), 
+        rgba(128,128,255,0.1)
+    );
+    pointer-events: none;
+}
+
+.worlds-section {
+    background-color: var(--secondary-bg);
+    padding: 100px 0;
+}
+
+.worlds-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.world-card {
+    background: linear-gradient(145deg, rgba(18,18,51,0.8), rgba(18,18,51,0.5));
+    border-radius: 15px;
+    padding: 30px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.world-card:hover {
+    transform: scale(1.05) rotate(3deg);
+}
+
+.world-title {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.characters-section {
+    background-color: var(--primary-bg);
+    padding: 100px 0;
+}
+
+.character-typography {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.character-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.character-row {
+    display: flex;
+    gap: 3rem;
+    animation: horizontalScroll 15s linear infinite;
+}
+
+.character-row.reversed {
+    flex-direction: row-reverse;
+    animation: horizontalScrollReverse 15s linear infinite;
+}
+
+.character-text {
+    font-size: 10vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    opacity: 0.1;
+}
+
+.game-footer {
+    background-color: var(--secondary-bg);
+    padding: 50px 0;
+}
+
+.footer-typography {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-text {
+    font-size: 5vw;
+    font-weight: 900;
+    color: var(--text-primary);
+    opacity: 0.3;
+}
+
+@keyframes horizontalScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes horizontalScrollReverse {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+    .worlds-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .type-text {
+        font-size: 20vw;
+    }
+
+    .character-text {
+        font-size: 15vw;
+    }
+}
