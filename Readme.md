@@ -14,13 +14,8 @@ A visually engaging website focusing on typography, animations, parallax effects
 - Node.js (v14+ recommended)
 - npm
 
-## Installation
-1. Clone the repository
-2. Run `npm install`
-3. Start the development server with `npm start`
-
 ## Deployment
-Deploy to GitHub Pages, Vercel, Netlify, or 000WebHost.
+Deploy to GitHub Pages, Vercel.
 
 ## Features
 - Responsive design
